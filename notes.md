@@ -224,3 +224,13 @@ const double =(n) => {
 3.  Extensibility-can be able to add new features
 4.  Testability
 5.  performance (space and time complixity)
+
+# cpoy by address:
+
+t2=t1;
+
+# copy by value:
+
+var q1=[1,2]
+var q2=[...q1]; //spred operator(...)
+var q3=[9, ...q1,8] //9,1,2,8
