@@ -38,7 +38,7 @@ to keep an image in the note use-!:
 # webp--
 
 it is an extension for image simislar to jpg etc
-but htis helps to reduce the size of the image wihtout change in the quality.
+but this helps to reduce the size of the image wihtout change in the quality.
 
 # svg(Scalable Vector Graphics)
 
@@ -50,3 +50,50 @@ Advantages of SVG files.
 - doesnot break when zoom in or zoom out.
 - it uses mathemitical formulas rather than pixels.
 - logos are generally svg.
+
+```JS
+var x=10
+typeof(x)
+/* dictionary*/
+var student={
+  name:"diana"
+  age:20
+}
+typeof(student)# object
+student.name # dot syntax
+or student['name'] # box syntax
+
+var marks=[1,2,4534,5]
+typeof(marks) # object
+20/0 # infinity
+
+   var z;
+   typeof(z) # undefined
+   var c=null;
+   typeof(c) # object
+
+   var name="a"
+   var name="b" ##allow
+   let name="f"
+   let name="o" ## not allowed
+   const name="p"
+   const name="k" ## not allowed
+   var name="a"
+   name="b" ## allowed
+   let name="l"
+   name="y" ## allowed
+   const name="Q"
+   name="h" ## not allowed
+```
+
+> # data types:
+>
+> string,number,boolean,objects,undefined
+
+- tpye of an unassigned values is undefined.
+- but the data type of a null value is object---->they know - that it is bug but they dont fix.
+
+> redeclaration is not possible in let and const works only in var.
+> reassignment is alloed in var and let, wont allow in const
+
+- python tutor-for visual execution

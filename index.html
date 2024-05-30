@@ -29,6 +29,30 @@
     </style>
   </head>
   <body>
+    <script>
+      var student = {
+        name: "diana",
+        age: 20,
+      };
+      console.log(student.name);
+      console.log(student.age);
+      console.log(student["age"]);
+      var s = null;
+      console.log(typeof s);
+      var t;
+      console.log(typeof t);
+      const arr = [12, 13, 15];
+      arr[1] = 90;
+      console.log(arr);
+
+      const t1 = [12, 13, 14];
+      const t2 = t1;
+      t1.push(90);
+      t2.push(20);
+      console.log(t1);
+      console.log(t2);
+    </script>
+
     <img
       class="contain"
       class="banner"
