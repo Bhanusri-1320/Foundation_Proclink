@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script src="functions.js">
+      //let & const are  -block scope
+      //var is not block scope
+      {
+        var x1 = 10;
+        let x2 = 20;
+      }
+      console.log(x1);
+      console.log(x2);
+      console.log(x1); // output= not defined (error)
+      console.log(x2); // not defined(error)
+      var x1 = 3;
+      var x2 = "5";
+      console.log(x1 + x2); //35
+      console.log(x1 - x2); //-2
+      console.log(x1 + parseInt(x2)); //output=10 (we are doing explicit type casting)
+      console.log(x1 + +x2); // 8
+    </script>
+  </body>
+</html>

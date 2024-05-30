@@ -84,6 +84,11 @@ typeof(marks) # object
    name="y" ## allowed
    const name="Q"
    name="h" ## not allowed
+
+
+   const marks=[1,2,3,4];
+   marks[0]=8; // posiible becoz not changing the address
+   marks=[4,5,6,7]; // not allowed becoz the address will change
 ```
 
 > # data types:
@@ -97,3 +102,125 @@ typeof(marks) # object
 > reassignment is alloed in var and let, wont allow in const
 
 - python tutor-for visual execution
+
+# SCOPE:
+
+> life time of variable
+
+    - tell u the area where the variable  can be accessed.
+    - {}----block
+    - let & const are  -block scope
+    - var is not block scope
+
+```js
+{
+  var x1 = 10;
+  let x2 = 20;
+}
+console.log(x1); // output=10
+console.log(x2); //error
+```
+
+> undefined---value //when we declare a var but not assigned any value then there we will get undefined
+> not defined-- error // we didinot even declared it so not defined
+> var--- is function scope
+
+# Conversions
+
+```js
+function fun() {
+  var x1 = 10;
+  let x2 = 20;
+  console.log(x1); // output= 10
+  console.log(x2); // 20
+}
+console.log(x1); // output= not defined (error)
+console.log(x2); // not defined(error)
+
+var x1 = 5;
+var x2 = "5";
+console.log(x1 + x2); //operative overloading (contact or addition)  concat is prior.
+console.log(x1 - x2); // only one operation subtract (implicit typecasting or coersion)
+console.log(x1 + parseInt(x2)); //output=10 (we are doing explicit type casting)
+console.log(x1 + +x2); // 10
+
+[2, 4, 5] + "abc"; // output--2,4,5abc
+```
+
+> explocit typecasting--
+
+> js only knows concation--converting into string each element
+
+```
+[]+[]=' '
+null+5==5 //null will be converined into 0, only for null, others will be conerted into string and concatination.
+
+4+ "5a" //NAN--it is not able to convert 5a into number so the output is NAN-not a number.
+
+typeof(NAN) // number
+
+```
+
+# === //faster - doesnot allow conversion
+
+The strict equality operator (===) checks for the equality of two values without performing any type conversion. This means that if the values being compared have different data types, === will return false.  
+ x1=5
+x2="5"
+x1===x2 // false
+
+# == //slower -checks values--conversion + check
+
+console.log(1 == "1"); // true and console.log(1 === "1"); // false.
+
+In the first example, JavaScript will convert the string "1" to the number 1 before comparing it to the number 1. This results in the expression evaluating to true.
+In the second example, JavaScript will not convert the string "1" to the number 1 because the strict equality operator (===) is being used. This results in the expression evaluating to false.
+
+# Types of functions:
+
+functions use-modular:add or remove the things you want easily. for doing any changes when we change the code that will be refelected in all without changing all the code.
+parameters and arugments
+fun(a){
+} // a parameter
+fun(8)// 8 is augment
+
+## normal function
+
+> exit the funtion 2 ways:
+
+- when the rrturn statement is executed
+- or else when all the statements are executed
+
+```function defination or declaration:
+function functionname(n){
+  return 0;
+}
+```
+
+## arrow function
+
+```
+const double =(n) => {
+  return n*2
+}
+ or
+ const double= (n) => n*2; //in one line (n*2 will be returned)
+
+  ##  with 2 parameters:
+  function sum(a,b){
+    return a+b;
+  }
+
+  const sum1=(a,b)=> a+b;
+```
+
+> NOTE: DRY
+
+# code quality:
+
+> there are 5 pillers to measure code quality.
+
+1.  readibility--should be understood by others anf for u in future
+2.  Maintianibility-code debt-tomorrow never come
+3.  Extensibility-can be able to add new features
+4.  Testability
+5.  performance (space and time complixity)
