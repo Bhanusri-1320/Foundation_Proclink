@@ -1,6 +1,7 @@
 const double =(n) => {
   return n*2
-}
+};
+console.log(double(3))
 
 const marks=[8,9,2,3,4]
 for(let i=0;i<marks.length;i++){
@@ -39,13 +40,14 @@ const cart = [
 
   var sum=0;
   var p=1;
-  for(i in  cart1)
+  for(i in cart1)
     {
       p=cart1[i].price*cart1[i].quantity;
       sum+=p;
     }
 
 console.log(sum);
+
 
   var s=0;
   var pp=0;
@@ -56,7 +58,14 @@ console.log(sum);
     }
     console.log(s)
   
-
+var sum_f=0;
+    const [,pq,q]=[...cart1];
+    for(let i of cart1)
+      {
+        p=pq*q;
+        sum_f+=p;
+      }
+console.log(sum_f)
   //1.2
   var sum=0;
   var p=1;
@@ -77,6 +86,29 @@ console.log(sum);
         total+=p;
     }
   console.log(total);
+ 
+
+  // destructured answer
+
+  var total_f=0;
+   p=1;
+  for(let item of cart1)
+     {
+      var {price,quantity}=item;
+         total_f+=price*quantity;
+     }
+   console.log("after destructuing: ",total_f);
+   
+   //
+   var total_f=0;
+   p=1;
+  for(let {price,quantity} of cart1)
+     {
+         total_f+=price*quantity;
+     }
+   console.log("after destructuing even more: ",total_f);
+
+  //1.2
 
  // Ex 2: Rating 4.7 and above | Recommendations List
 const books = [
@@ -99,6 +131,8 @@ for(let i of books)
       output.push(i.title);
   }
   console.log(output)
+
+
   var output=[];
    for(let i=0;i<books.length;i++)
     {
@@ -158,19 +192,23 @@ const movies = [
   var sum1=0;
   var a;
   var high=0;
+  var avg=0;
   for(let i=0;i<movies.length;i++)
     {
         //console.log(sum_s(movies[9]))
       for(let j=0;j<movies[i].ratings.length;j++)
         {
             sum1+=movies[i].ratings[j];
-            if(high<sum1)
+            avg=sum1/5
+
+            if(high<avg)
                 {
                  // low=high;
-                    high=sum1;
+                    high=avg;
                     a=movies[i].title
                 }
         }
         sum1=0;
+        
     }
-    console.log(a)
+  console.log(a)
