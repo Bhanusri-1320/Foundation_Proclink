@@ -96,3 +96,29 @@ function processNames2(names) {
 
 const namesArray2 = ["john doe", "jane smith", "alice jones"];
 console.log(processNames2(namesArray2));
+
+// JSDOC
+/**
+ * Multiplies two numbers.
+ * @param {number} x - The first number.
+ * @param {number} y - The second number.
+ * @returns {number} The product of x and y.
+ * @example
+ * multiply(2, 3); // returns 6
+ */
+function multiply(x, y) {
+  return x * y;
+}
+
+// Write a function to make it uppercase
+
+/**
+ * Converts a string to upper case
+ * @param {string} string -The string which needs to be converted
+ * @returns {string} The converted strong
+ * @example
+ * To_UpperCase(hello); // returns HELLO
+ */
+function convertToUpperCase(string) {
+  return string.toUpperCase();
+}

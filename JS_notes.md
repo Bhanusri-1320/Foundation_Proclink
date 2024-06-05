@@ -503,6 +503,8 @@ PM+ CTO== Techinal analysis
 > after 14 days  
 > retrospective-- what went wrong(happens for 1 hour)
 
+> Note: Code quality will br te tested by the reviewer.
+
 ![img](image.png)
 ![img2](image-1.png)
 
@@ -520,9 +522,81 @@ PM+ CTO== Techinal analysis
 > then that will be forwarded to next sprint---called as spill over
 > ![spill over](image-4.png)
 
-# coding standards in js:
+# coding standards in js: are ment to have uniformity through out your code base
 
+> DRY  
 > code quality  
 > variables names, function names --camel case  
-> // camel case==abcDed
+> // camel case==abcDed  
 > // pascal case==CarEngine
+
+## Variable names
+
+1. understandable / Descriptive
+
+```js
+let a = 9; //wrong
+let age = 9; // correct way to do it
+```
+
+2. camelCase
+
+```js
+let student_name = "BHANUSRI"; // wrong (no underscore)
+let studentName = "Bhanusri"; // correct
+```
+
+    ### Errors for  variable names:
+      - reserved keywords
+      - can't start with numbers( let 2cool=90)
+      - can't have special symbols except for underscore ('_')
+
+```js
+let abc$123 = "bhanu"; // wrong
+let abc_123 = "bhanu"; // correct
+```
+
+> 3. choose 'let' over 'var', choose 'const' over 'let'.
+
+- const ex for pancard number.,pi value
+- const--telling to other developers that doesn't going to change.
+- const case-- ex PI_VALUE=3.14; for const values use const case.s
+
+![coding standards](image-5.png)
+
+# Documentation
+
+- Single line comment //
+- Multiple line comment
+
+```js
+/**
+ * this is
+ * multiline commentS
+ */
+
+/**
+ * Multiplies two numbers.
+ * @param {number} x - The first number.
+ * @param {number} y - The second number.
+ * @returns {number} The product of x and y.
+ * @example
+ * multiply(2, 3); // returns 6
+ */
+function multiply(x, y) {
+  return x * y;
+}
+
+// Write a function to make it uppercase
+
+/**
+ * Converts a string to upper case
+ * @param {string} string -The string which needs to be converted
+ * @returns {string} The converted strong
+ * @example
+ * To_UpperCase(hello); // returns HELLO
+ */
+function convertToUpperCase(string) {
+  return string.toUpperCase();
+}
+```
