@@ -89,3 +89,12 @@ sans serif--- for other websites like tranding,chill etc
 > border  
 > padding --
 > content
+
+max-width--to avoid scrool bar when we zoom out it then text should come to next line
+Note: Imporant
+
+> 1vh=1% of screen height  
+> 1vw=1% of screen width  
+> width=1% of container width
+> 1px=absolute
+> 1% -relative
