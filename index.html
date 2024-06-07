@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <style>
-      /* Element Selector */
+      /* Element Selector
+        ol>li*4--to get multiple tags */
       h2,
       h7 {
         color: blue;
@@ -26,7 +27,16 @@
         width: 200px;
         height: 200px;
       }
+      .brand {
+        color: chocolate;
+        font-size: 30px;
+        text-transform: uppercase;
+        text-decoration: dashed;
+        text-align: center;
+        letter-spacing: 15px;
+      }
     </style>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <script>
@@ -65,11 +75,40 @@
     <h4>Hello World🌍</h4>
     <h5 class="fun">Hello World🌍</h5>
     <h6>Hello World🌍</h6>
-
+    <h2 class="brand">GUCCI</h2>
     <img
       class="nature"
       src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTbpdV5eKcBMzjs7ltDev4YxvWvnNxcFk7wUg&s"
       alt="nature"
     />
+    <ul>
+      <li>Dancing</li>
+      <li>cooking</li>
+    </ul>
+    <ol start="3">
+      <li>Dancing</li>
+      <ul>
+        <li>bharathanatyam</li>
+        <li>wastren</li>
+        <li>kuchipudi</li>
+        <li>kathkali</li>
+      </ul>
+
+      <ol start="9">
+        <li>dance</li>
+        <li>music</li>
+      </ol>
+      <p>
+        Before we answer the question "How do you revert Git commit?" we need to
+        explain the command.
+      </p>
+      <p>
+        The Git revert commit command is an "undo" operation that provides users
+        with a careful, less intrusive way to undo changes.
+      </p>
+      <li>cooking</li>
+      <a href="some link" target="_blank">link</a>
+      /* target=blank to open the link in another tab */
+    </ol>
   </body>
 </html>
