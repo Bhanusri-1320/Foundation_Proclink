@@ -947,7 +947,7 @@ where year between 2010 and 2020
 select * from  vWLastDecade_Movies-- to access the view
 ```
 
-1. Complex statemet -create view- Easily readability
+1. Readibily---Complex statemet -create view- Easily readability
 2. Abstraction
 3. security--to hide some coloms,access to only
 
@@ -964,7 +964,7 @@ select * from  vWLastDecade_Movies-- to access the view
 > Single Values
 > Inline Table valued function
 > Multi Table Value Function--insert update, delete ect inside function.,
-> in MTVF all DML commmands we can do.
+> in MTVF all DML commmands we can do for the same table
 
 ```sql
 create function dbo.functionName()
@@ -983,10 +983,21 @@ where year>2015
 . LIMITATION of function---can't modify the table which are not mentioned inside the function.
 
 ```sql
--- Stored Procuedures:
+-- Stored Procuedures:can modify any table not only the
+-- inbuilt stored procedure is declared as sp_name
+exec sp_helptext spGetMoviesByGenre--to knoe what is inside, if we forgot sometimes
+create Procedure spGetMoviesByGenre
+  @Genre nvarchar(20)
+as
+Begin
+   select * from Movies
+   where Genre=@Genre
+end
+Exec spGetMoviesByGenre 'Action'
+Execute spGetMoviesByGenre 'Action'
+
 --if : print--------------
 Decalre @OrderAmount Decimal(10,2)=1500.00
-
 If @OrderAmount > 1000
 Begin
       print 'Applying 10% discount'
@@ -1004,5 +1015,106 @@ Begin
 	Set @Counter = @Counter - 1
 End
 ------------------------------------------------------------
-
+create Procedure spGetMoviesByGenre
+  @Genre nvarchar(20)
+as
+Begin
+   select * from Movies
+   where Genre=@Genre
+end
+Exec spGetMoviesByGenre 'Action'
+Execute spGetMoviesByGenre 'Action'
 ```
+
+---
+
+# 24-06
+
+> database which is ggod at reading and inserting--can't have it coz if insertion is high spped then reading spped will become slow  
+> mongo db-- good at retriving, insertion speed is slow
+
+# INDEXING
+
+Types--2
+
+## Clustred
+
+- creted when we create a primary key
+- Cluster indoex determines the table
+
+## Non-Clustred
+
+- on non primary key colomn
+
+> Table Scan --- searching line by line
+
+> ![alt text](image-67.png)
+> SQL is 50-50 in reding and inserting
+> is the way to improve reading speed in SQL
+> Default index in Sql IS called cluster index.--means primary key as index
+> ![alt text](image-68.png)
+
+```sql
+select * from Employees
+where id=95671--Index seek -- 1 row it is searched
+select * from Employees
+where name='ABC 25345'--Index scan --all rows
+
+Exec sp_helpindex Employees
+--on primary key--Clustred--decides table order
+---non-primary--non cluster
+
+-- INdexing on name colomn--by non clusterd index
+CREATE NONCLUSTERED INDEX IX_Employees_Name
+    ON Employees ([name]);
+```
+
+# Non Cluster INdex
+
+> when we insert --have to rebuit the non cluster index tbale thta why insertion is slow  
+> ![alt text](image-69.png)  
+> to know all the indexs---Exec sp-helpindex Employees  
+> to drop --drop index IX_Employees_Name on Employees
+
+> ![alt text](image-70.png)
+
+## Unique Vs Non UNique index
+
+> unique index--apply index on unique colomn  
+> non unique index--apply index on nin unique colomn other than non-primary key
+
+# ACID Properties:
+
+```sql
+---Transaction---
+begin Transaction
+Update Actors
+set FirstName='Prabassss'
+where ActorID=1
+Commit Transaction
+```
+
+# A: Atomacity
+
+> ![alt text](image-71.png)
+
+- the transaction should be done completely or not done totally
+- both pass/both fail--can't have inconsistancy
+
+# C: Consistency
+
+- can't have goast data
+- if some money is coming in means some money should be going out
+
+# I: Isolation
+
+- separation
+  > ![alt text](image-72.png)
+- if someone is booking a seat that should be locked so that no one should book at the same time
+  > ![alt text](image-74.png)
+
+# D: Durability
+
+> ![alt text](image-73.png)
+
+- Roll Back when there is a power loss etc
