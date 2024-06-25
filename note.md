@@ -1030,10 +1030,14 @@ Execute spGetMoviesByGenre 'Action'
 
 # 24-06
 
-> database which is ggod at reading and inserting--can't have it coz if insertion is high spped then reading spped will become slow  
+> database which is good at reading and inserting--can't have it coz if insertion is high spped then reading spped will become slow  
 > mongo db-- good at retriving, insertion speed is slow
 
 # INDEXING
+
+- adv is:
+  > retrive faster
+  > Determines the order of the table
 
 Types--2
 
@@ -1100,6 +1104,7 @@ Commit Transaction
 
 - the transaction should be done completely or not done totally
 - both pass/both fail--can't have inconsistancy
+  -talks about if any failure happens during the transcation
 
 # C: Consistency
 
@@ -1118,3 +1123,120 @@ Commit Transaction
 > ![alt text](image-73.png)
 
 - Roll Back when there is a power loss etc
+- talks about After the transaction if any failure happens
+
+- Isolation Levels-to see uncommited changes
+- by default it reads commited changes
+
+```sql
+
+SET TRANSACTION ISOLATION LEVEL READ COMMITTED;-- to see commited changes -default
+set Transaction Isolation level read uncommitted;-- to see the uncommited changes
+```
+
+> why means when we want to deliver it to customers urgently
+
+# Filter Index
+
+> flitering on a specific values like movies in 2020,
+> when people are searching for the movies only in 2020
+> so, to make retrival faster we can make filter index on 2020
+
+```sql
+create index IX_Filter_year
+on ovies (Title)
+where Releaseyear=2020
+```
+
+> To test the perforamnce with and wiothout index
+> To diable the index
+
+```sql
+alter index IX_Filter_Year on Movies Disable
+alter index IX_Filter_Year on Movies Rebuild--to enable
+
+```
+
+> To rename StoredProcedure
+> Exec sp_rename name--procedures,rename,coloms syntax is diff
+> Exec SP_rename 'Movies.IX_Filter_Year' -- to rename the filter
+
+# System Info Functions:
+
+```sql
+> Coalesce--returns which ever is not null
+> select COALESCE(null,null,first_name) as First not null
+
+select DB_NAME() as currentDB
+---------current db right now in-----
+
+select DB_NAME() as currentDB
+---------to know the version of sql---
+select @@VERSION as SQLServerVersion
+--to know the server--------
+select @@SERVERNAME as SQLServerVersion
+-----------------------------------------
+select @@SERVICENAME as SQLServerVersion
+-------------------------------------
+select SESSION_USER as Currentsession
+select SYSTEM_USER as SystemUserName
+
+```
+
+# User Defined DataTypes:
+
+```sql
+-----------User Defined DataTypes-------------
+create Type PhoneNumber from varchar(15) not null
+create table Customer(
+contact_id int Primary Key,
+name varchar(50),
+phoneNo PhoneNumber
+);
+insert into Customer
+values (1,'bhanusri','123-456-789')
+select * from Customer
+```
+
+# XML Methods:
+
+- xml is an in built data type
+
+```sql
+
+---------------------------XML Methods-------------------------------------------------------------------
+DECLARE @xmlDoc INT;
+DECLARE @xmlData NVARCHAR(MAX);
+
+-- 1. Assign XML data to a variable
+SET @xmlData =
+'<Books>
+<Book id="1">
+<Title>SQL for Beginners</Title>
+<Author>John Doe</Author>
+<Price>29.99</Price>
+</Book>
+<Book id="2">
+<Title>Advanced SQL</Title>
+<Author>Jane Smith</Author>
+<Price>49.99</Price>
+</Book>
+</Books>';
+
+-- 2. Parse the XML document
+EXEC sp_xml_preparedocument @xmlDoc OUTPUT, @xmlData;
+--to know if there is any error in the xml data
+
+-- 3. Query the XML data using OPENXML
+SELECT *
+FROM OPENXML(@xmlDoc, '/Books/Book', 1)
+WITH (
+    id INT '@id',
+    Title NVARCHAR(100) 'Title',
+    Author NVARCHAR(100) 'Author',
+    Price DECIMAL(10,2) 'Price'
+);
+
+-- Clear the memory
+EXEC sp_xml_removedocument @xmlDoc;
+```
