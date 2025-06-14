@@ -98,3 +98,7 @@ Note: Imporant
 > width=1% of container width
 > 1px=absolute
 > 1% -relative
+> Note: To change the color gradiently--generer a css color gradient--it will combine nd gives the color
+> inline---occupy only content width (anchor tag ,span)
+> bloch--will occupy entire width of the computer (heading ,paragraph elements)
+> clip-path-->masking
