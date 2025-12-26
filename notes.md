@@ -1,15 +1,401 @@
-# intro to the werb development
+# intro to the web development
+ - Browser can only undertans HTML, Css, and JS
+ - The first web browser is WWW(worl wide web)
+ - The first popular or first widely used is MOSAIC, which has back, forward, reload, minmize,maximize and close features.
+ - NETSCAPE: Mosaic → developers left → formed Netscape → created Netscape Navigator (the successor to Mosaic).
 
 ## browser wars
+- The first browsers war is b/w Netscape and Internet Explorer
+- IE won the Browser War because it was pre-installed with Windows, and Windows dominated the PC market.
+- Chrome was launched in 2008
+- Chrome entered with powerful advantages:
+- Much faster (new JavaScript engine "V8")
+- Clean, minimalist UI
+- Auto-updates
+- Strong security sandboxing
+- Backed by Google’s ecosystem
+📉 What happened next:
+- Chrome grew incredibly quickly.
+- Firefox slowed down.
+- Internet Explorer collapsed.
+- By 2012, Chrome became the world’s most-used browser.
+- Google hired people from Firefox
+- ![alt text](image-3.png) 
+This ended the dominance of both IE and Firefox.
 
-the war eas between netscape and IE
+Think of Chromium as:
 
+The “engine + basic car frame” → browsers build their own custom car on top of it.
+
+Chromium includes:
+
+The browser engine (Blink)
+
+The JavaScript engine (V8)
+
+Security sandboxing
+
+Tab system and UI basics
+
+Extension support
+
+Because it’s open-source, anyone can use it to create their own browser.
+
+ # Web Archicture:
+ - Front End(Client side)
+ - Back End/Server
+ - DataBase
+
+# Transpiling & Bundling:
+- ![alt text](image-4.png)
+
+React / Angular code
+        ↓
+      Babel   (transpiling)
+        ↓
+  Plain JavaScript
+        ↓
+     Webpack (bundling)
+        ↓
+HTML + CSS + JS
+        ↓
+      Browser
+- Browsers only understand HTML, CSS, and JavaScript.
+Framework code (React, Angular, JSX, TypeScript) is converted into plain JavaScript using tools like Babel, and then bundled using Webpack. This process is called transpiling (for Babel) and bundling (for Webpack).
+
+# What is JS:
+![alt text](image-5.png)
 ## 3 layer arch
-
 - FE
+- BE
+- DB
+# Coupling:
+1️⃣ What is Coupling? (General idea)
+Coupling = how much one part of code depends on another
+High dependence → Tight coupling ❌
+Low dependence → Loose coupling ✅
+
+2️⃣ Tight Coupling ❌
+Definition: Tight coupling means one class/module/function is strongly dependent on another specific class/module/function.
+If you change one thing, many other things break.
+# Micro Service Archicture: 
+- Microservices architecture means:
+- An application is split into small, independent services
+- Each service:
+Does one job
+Has its own code
+Often has its own database
+Communicates with others via APIs
+
+###  Why Loose Coupling Is REQUIRED for Microservices
+❌ Tight coupling + Microservices = Problems
+- If services are tightly coupled:
+- Changing one service breaks others
+- You must deploy everything together
+- One failure can crash the whole system
+- That defeats the purpose of microservices.
+
+✅ Loose coupling + Microservices = Success
+- Loose coupling allows:
+- Independent deployment
+- Independent scaling
+- Technology freedom (Java, Node, PHP mixed)
+- Fault isolation
+------------------------------------------------------------
+- One-line interview answer 🎯
+Loose coupling is the foundation of microservices; microservices apply loose coupling at the system level so services can be developed, deployed, and scaled independently.
+
+# What happens when you type "www.google.com"?
+- ![alt text](image-12.png)
+URL typed
+↓
+DNS lookup
+↓
+IP address found
+↓
+HTTPS connection
+↓
+HTTP request sent
+↓
+Server processes
+↓
+HTTP response returned
+↓
+Browser renders page
+
+- One-line interview answer 🎯
+- When a URL is entered, the browser performs DNS lookup, establishes a secure connection, sends an HTTP request to the server, receives the response, and renders the webpage using HTML, CSS, and JavaScript.
+```js
+1️⃣ You type www.google.com in the browser
+
+This is called a URL (Uniform Resource Locator).
+
+The browser now needs to:
+
+Find where Google’s server is
+
+Ask it for the webpage
+
+2️⃣ DNS Lookup (Name → IP address)
+
+Computers don’t understand names like google.com.
+They use IP addresses (example: 142.250.xxx.xxx).
+
+What happens:
+
+Browser checks its cache (have I visited before?)
+
+If not found, it asks the OS
+
+Then the router
+
+Then a DNS server
+
+DNS server replies with Google’s IP address
+
+👉 This is like looking up a phone number in a contact list.
+
+3️⃣ Browser creates an HTTP request
+
+Now the browser knows where to send the request.
+
+It creates a request like:
+
+GET / HTTP/1.1
+Host: www.google.com
+
+
+This request says:
+
+“Hey Google server, please send me your homepage.”
+
+4️⃣ Secure connection (HTTPS / TLS)
+
+Because Google uses HTTPS:
+
+Browser and server perform a TLS handshake
+
+Encryption keys are exchanged
+
+A secure connection is established 🔒
+
+This ensures:
+
+Data privacy
+
+No tampering
+
+Server authenticity
+
+5️⃣ Request travels over the Internet 🌍
+
+The request:
+
+Goes through routers
+
+Passes ISPs
+
+Reaches Google’s nearest data center
+
+(This happens in milliseconds!)
+
+6️⃣ Google’s server processes the request
+
+On Google’s side:
+
+A web server (like Nginx) receives the request
+
+The backend decides what to return
+
+It prepares:
+
+HTML
+
+CSS
+
+JavaScript
+
+Cookies, headers
+
+7️⃣ Server sends back an HTTP response
+
+The server replies with something like:
+
+HTTP/1.1 200 OK
+Content-Type: text/html
+
+
+And sends the webpage content.
+
+8️⃣ Browser renders the page 🖥️
+
+Now the browser gets to work:
+
+Rendering steps:
+
+Parse HTML → build DOM
+
+Load CSS → build CSSOM
+
+Execute JavaScript
+
+Fetch extra files (images, fonts, JS)
+
+Paint pixels on the screen
+
+👉 This is when you finally see Google’s homepage.
+
+9️⃣ JavaScript continues working
+
+After loading:
+
+JS handles searches
+
+Button clicks
+
+Suggestions
+
+Dynamic updates (AJAX)
+
+The page stays interactive.
+
+```
+
+- #### Internet Protocol:
+- def: IP (Internet Protocol) address = a unique number assigned to a device on a network so other devices can find and communicate with it.
+- ![alt text](image-6.png)
+- ##### Types of IP Addresses:
+- ![alt text](image-7.png)
+- Public: ISP will assign public IP to Router
+- Private: router will asign private IP to devices like mobile, laptop etc.
+- Static: A static IP is an IP address that never changes. It is manually assigned to a device.
+- Dynamic: A dynamic IP is an IP address that changes automatically. Assigned by a DHCP server.
+- #### TCP vs UDP
+- ![alt text](image-8.png)
+- ##### How Internet Works:
+- ![alt text](image-9.png)
+- ### Structure of Web Browser:
+- ![alt text](image-10.png)
+```js
+---
+
+## 1️⃣ User Interface (UI)
+
+* This is **what you see and interact with**:
+
+  * Address bar
+  * Back and forward buttons
+  * Refresh button
+  * Bookmark menu
+* The **Minion icon** here just adds a fun touch!
+
+---
+
+## 2️⃣ Browser Engine
+
+* This is the **control center** of the browser.
+* It **connects the User Interface with the Rendering Engine and other components**.
+* It decides **what happens when you click buttons** or enter URLs.
+--------
+What is a JavaScript Engine?
+Simple definition:
+
+JavaScript engine = the part of the browser that executes JavaScript code.
+
+What it does:
+
+Reads JavaScript
+
+Compiles it into machine code
+
+Executes it fast
+
+Handles:
+
+Variables
+
+Functions
+
+Events
+
+DOM manipulation
+
+Examples:
+
+V8 → Chrome, Edge
+
+SpiderMonkey → Firefox
+
+JavaScriptCore → Safari
+
+
+--------------------------------------------
+
+## 3️⃣ Rendering Engine
+
+* This part **renders (draws) the web page on your screen**.
+* It takes the **HTML, CSS, JavaScript** from the web page and builds the visual page.
+* It processes the content and turns it into the actual layout you see.
+* The tree icon symbolizes the **DOM tree** the engine builds while parsing HTML.
+
+---
+
+What is a Rendering Engine?
+Simple definition:
+Rendering engine = the part of the browser that converts HTML, CSS, and JS results into what you see on the screen
+What it does:
+
+Reads HTML → builds the DOM
+
+Reads CSS → builds the CSSOM
+
+Combines them → Render Tree
+
+Calculates layout (size & position)
+
+Paints pixels on the screen
+
+👉 This is why it’s called rendering (drawing).
+Examples:
+
+Blink → Chrome, Edge, Brave
+
+Gecko → Firefox
+
+WebKit → Safari
+-------------------------
+
+## 4️⃣ Data Storage
+
+* This stores data locally on your device.
+* Examples include:
+
+  * Cookies (represented by the cookie emoji 🍪)
+  * Cache
+  * Local storage or IndexedDB
+* It helps store preferences, login info, and speeds up page loading.
+
+---
+
+## 5️⃣ UI Backend
+
+* This is responsible for **drawing basic widgets** like buttons, menus, and text boxes.
+* It uses the platform's native APIs (Windows, Mac, Linux) to make the UI look consistent.
+
+---
+
+## 6️⃣ Summary Flow (How they work together)
+
+* You interact with the **User Interface**.
+* The **Browser Engine** handles your commands.
+* It sends content to the **Rendering Engine** to build the page.
+* The **Rendering Engine** renders the page.
+* Both the **Browser Engine** and **Rendering Engine** may interact with **Data Storage**.
+* The **UI Backend** draws basic components that you see and interact with.
+```
+-------------------------------------------------------------------------
 
 # selector
-
 ```css
 
       .fun {
@@ -790,7 +1176,7 @@ console.log(temp);
 > PASCAL CASE--->CarEngine
 > Camel case--->
 
-## the software development life cycle.(SDLC)
+# the software development life cycle.(SDLC)
 
 creating one design and other design--prototyping  
  figma->is the design tool

@@ -1,0 +1,19 @@
+body
+{
+  background-image: url("https://images.pexels.com/photos/1707820/pexels-photo-1707820.jpeg?cs=srgb&dl=pexels-misael-garcia-832776-1707820.jpg&fm=jpg");
+  background-size: cover; 
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+}
+h1
+{
+      background: linear-gradient(to right, rgb(199, 174, 174) , rgb(59, 161, 215));
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+p{
+      background: linear-gradient(to left, rgb(198, 122, 122) , rgb(39, 161, 183));
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
