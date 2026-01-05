@@ -1141,6 +1141,7 @@ if (x) {
 o / p - nope;
 
 let x = [];
+
 if (x) {
   console.log("hey");
 } else {
